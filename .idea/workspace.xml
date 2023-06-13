@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05834f2f-2971-45c0-b6c5-9ed7e4065304" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Backend/dscatalog/src/main/java/com/devsuperio/dscatalog/contoller/CategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/dscatalog/src/main/java/com/devsuperio/dscatalog/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/dscatalog/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/dscatalog/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/dscatalog/src/main/java/com/devsuperio/dscatalog/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/dscatalog/src/main/java/com/devsuperio/dscatalog/entity/Category.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,25 +40,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/irsneto/DevSuperior/projetosDevSuperior/DsCatalog",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "spring.configuration.checksum": "afd9430fb809d79d8e3780c6984c5fee",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/irsneto/DevSuperior/projetosDevSuperior/DsCatalog&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;afd9430fb809d79d8e3780c6984c5fee&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="DscatalogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="dscatalog" />
@@ -79,6 +81,7 @@
       <workItem from="1686322396770" duration="526000" />
       <workItem from="1686571216406" duration="513000" />
       <workItem from="1686571766533" duration="48000" />
+      <workItem from="1686661451025" duration="67000" />
     </task>
     <servers />
   </component>
