@@ -1,7 +1,6 @@
 package com.devsuperio.dscatalog.contoller;
 
 import com.devsuperio.dscatalog.dtos.CategoryDTO;
-import com.devsuperio.dscatalog.entity.Category;
 import com.devsuperio.dscatalog.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -31,5 +29,15 @@ public class CategoryController {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
                 .buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(service.insert(dto));
+    }
+    @PutMapping("{id}")
+    public ResponseEntity<CategoryDTO> update(@PathVariable("id")Long id,
+                                              @RequestBody CategoryDTO dto){
+        return new ResponseEntity<>(service.update(id,dto),HttpStatus.OK);
+    }
+    @DeleteMapping("{id}")
+    public ResponseEntity delete(@PathVariable("id")Long id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
