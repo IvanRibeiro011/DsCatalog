@@ -1,11 +1,12 @@
 package com.devsuperio.dscatalog.services;
 
+import com.devsuperio.dscatalog.dtos.CategoryDTO;
 import com.devsuperio.dscatalog.dtos.ProductDTO;
-import com.devsuperio.dscatalog.dtos.ProductDTO;
+import com.devsuperio.dscatalog.entity.Category;
 import com.devsuperio.dscatalog.entity.Product;
 import com.devsuperio.dscatalog.exceptions.DatabaseException;
 import com.devsuperio.dscatalog.exceptions.ResourceNotFoundException;
-import com.devsuperio.dscatalog.repository.ProductRepository;
+import com.devsuperio.dscatalog.repository.CategoryRepository;
 import com.devsuperio.dscatalog.repository.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProductService {
     @Autowired
     private ProductRepository repository;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @Transactional(readOnly = true)
     public Page<ProductDTO> findAll(Pageable pageable) {
@@ -35,21 +38,23 @@ public class ProductService {
 
     @Transactional
     public ProductDTO insert(ProductDTO dto) {
-        Product Product = new Product();
+        Product product = new Product();
+        copyDtoToEntity(dto,product);
 //        Product.setName(dto.getName());
-        return new ProductDTO(repository.save(Product));
+        return new ProductDTO(repository.save(product));
     }
 
     @Transactional
     public ProductDTO update(Long id, ProductDTO dto) {
         try {
-            Product Product = repository.getReferenceById(id);
-            Product.setName(dto.getName());
-            return new ProductDTO(repository.save(Product));
+            Product product = repository.getReferenceById(id);
+            copyDtoToEntity(dto,product);
+            return new ProductDTO(repository.save(product));
         } catch (EntityNotFoundException e) {
             throw new ResourceNotFoundException("Entity not found");
         }
     }
+
     @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
         if (!repository.existsById(id)) {
@@ -60,6 +65,18 @@ public class ProductService {
         }
         catch (DataIntegrityViolationException e) {
             throw new DatabaseException("Falha de integridade referencial");
+        }
+    }
+    private void copyDtoToEntity(ProductDTO dto, Product product) {
+        product.setName(dto.getName());
+        product.setDescription(dto.getDescription());
+        product.setPrice(dto.getPrice());
+        product.setDate(dto.getDate());
+        product.setImgUrl(dto.getImgUrl());
+        product.getCategories().clear();
+        for(CategoryDTO c : dto.getCategories()){
+            Category category = categoryRepository.getReferenceById(c.getId());
+            product.getCategories().add(category);
         }
     }
 }
