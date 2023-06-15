@@ -1,7 +1,7 @@
 package com.devsuperio.dscatalog.contoller;
 
-import com.devsuperio.dscatalog.dtos.CategoryDTO;
-import com.devsuperio.dscatalog.services.CategoryService;
+import com.devsuperio.dscatalog.dtos.ProductDTO;
+import com.devsuperio.dscatalog.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,31 +13,31 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping("/categories")
-public class CategoryController {
+@RequestMapping("/products")
+public class ProductController {
     @Autowired
-    private CategoryService service;
+    private ProductService service;
     @GetMapping
-    public ResponseEntity<Page<CategoryDTO>> findAll(Pageable pageable){
+    public ResponseEntity<Page<ProductDTO>> findAll(Pageable pageable){
         return new ResponseEntity<>(service.findAll(pageable), HttpStatus.OK);
     }
     @GetMapping("{id}")
-    public ResponseEntity<CategoryDTO> findById(@PathVariable("id") Long id){
+    public ResponseEntity<ProductDTO> findById(@PathVariable("id") Long id){
         return new ResponseEntity<>(service.findById(id), HttpStatus.OK);
     }
     @PostMapping
-    public ResponseEntity<CategoryDTO> insert(@RequestBody CategoryDTO dto){
+    public ResponseEntity<ProductDTO> insert(@RequestBody ProductDTO dto){
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
                 .buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(service.insert(dto));
     }
     @PutMapping("{id}")
-    public ResponseEntity<CategoryDTO> update(@PathVariable("id")Long id,
-                                              @RequestBody CategoryDTO dto){
+    public ResponseEntity<ProductDTO> update(@PathVariable("id")Long id,
+                                              @RequestBody ProductDTO dto){
         return new ResponseEntity<>(service.update(id,dto),HttpStatus.OK);
     }
     @DeleteMapping("{id}")
-    public  ResponseEntity delete(@PathVariable("id")Long id){
+    public ResponseEntity delete(@PathVariable("id")Long id){
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
